@@ -58,6 +58,7 @@ namespace Example
 
         private IEnumerator CommadCalled(ICommand command)
         {
+            tag = "Player";
             yield return new WaitForSeconds(_treshold);
             command.Execute();
             _lastPositions.Push(command);
@@ -66,6 +67,7 @@ namespace Example
 
         private IEnumerator LastPoint()
         {
+            tag = "Back";
             yield return new WaitForSeconds(_treshold);
             _lastPositions.Pop().Undo();
             _coroutine = null;
